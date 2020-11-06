@@ -3,6 +3,7 @@ using Components.Item;
 using Item;
 using RFramework.Common.Singleton;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Manager
 {
@@ -15,15 +16,15 @@ namespace Manager
 
         private void Update()
         {
-            // if (Input.GetKeyDown(KeyCode.R))
-            // {
-            //     var player = GameManager.Contexts.game.playerTagEntity;
-            //     player.ChangeItem(new ChangeItemPair
-            //     {
-            //         ItemName = "BulletFindClosetTarget",
-            //         Type = ChangeItemType.Add
-            //     });
-            // }
+            if (Keyboard.current.rKey.wasPressedThisFrame)
+            {
+                var player = GameManager.Contexts.game.playerTagEntity;
+                player.ChangeItem(new ChangeItemPair
+                {
+                    ItemName = "BulletFindClosetTarget",
+                    Type = ChangeItemType.Add
+                });
+            }
         }
 
         public ItemData GetItem(string itemName)

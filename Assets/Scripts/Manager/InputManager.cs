@@ -1,5 +1,4 @@
 using RFramework.Common.Singleton;
-using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Manager
