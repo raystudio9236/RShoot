@@ -1,7 +1,7 @@
 using System;
 using Hybrid.Base;
 using UnityEngine;
-using Utils.Pool;
+using RFramework.Common.Pool;
 
 namespace Other
 {

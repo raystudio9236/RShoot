@@ -43,7 +43,7 @@ namespace Events
 
         public static GameEntity AddStatHandler(
             this GameEntity gameEntity,
-            Utils.Event.EventHandler<StatChangeData> handler)
+            RFramework.Common.Event.EventHandler<StatChangeData> handler)
         {
 #if DEBUG
 
@@ -63,7 +63,7 @@ namespace Events
 
         public static GameEntity RemoveStatHandler(
             this GameEntity gameEntity,
-            Utils.Event.EventHandler<StatChangeData> handler)
+            RFramework.Common.Event.EventHandler<StatChangeData> handler)
         {
 #if DEBUG
 

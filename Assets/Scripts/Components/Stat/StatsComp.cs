@@ -1,7 +1,7 @@
 using System;
 using Entitas;
 using Events;
-using Utils.Event;
+using RFramework.Common.Event;
 
 namespace Components.Stat
 {

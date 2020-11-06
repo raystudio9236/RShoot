@@ -3,13 +3,13 @@ using Entitas;
 using Events;
 using Other;
 using UnityEngine;
-using Utils.Event;
+using RFramework.Common.Event;
+using RFramework.Common.Singleton;
 
 namespace Manager
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : MonoSingleton<GameManager>
     {
-        public static GameManager Instance;
         public static Contexts Contexts => Instance._contexts;
 
         private GameEntity _player;
@@ -102,13 +102,10 @@ namespace Manager
 
         #endregion
 
-        private void Awake()
+        protected override void OnInit()
         {
-            if (Instance != null)
-                Destroy(Instance.gameObject);
-
-            Instance = this;
-
+            base.OnInit();
+            
             _contexts = Contexts.sharedInstance;
             _contexts.SubscribeId();
 

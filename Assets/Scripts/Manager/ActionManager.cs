@@ -1,31 +1,21 @@
 using System.Collections.Generic;
 using Actions.Core;
+using RFramework.Common.Pool;
 using Other;
+using RFramework.Common.Singleton;
 using UnityEngine;
-using Utils;
-using Utils.Pool;
 
 namespace Manager
 {
-    public class ActionManager : MonoBehaviour
+    public class ActionManager : MonoSingleton<ActionManager>
     {
         private const string PATH_PREFIX = "ActionGraphs";
-
-        public static ActionManager Instance;
 
         private InstancePool<ActionGraphHost> _actionPool =
             new InstancePool<ActionGraphHost>();
 
         private Dictionary<string, ActionGraph> _graphDic =
             new Dictionary<string, ActionGraph>();
-
-        private void Awake()
-        {
-            if (Instance != null)
-                Destroy(Instance.gameObject);
-
-            Instance = this;
-        }
 
         public void AddGraph(GameEntity entity, ActionTag actionTag)
         {

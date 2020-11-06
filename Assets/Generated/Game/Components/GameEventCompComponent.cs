@@ -11,14 +11,14 @@ public partial class GameEntity {
     public Components.Event.EventComp eventComp { get { return (Components.Event.EventComp)GetComponent(GameComponentsLookup.EventComp); } }
     public bool hasEventComp { get { return HasComponent(GameComponentsLookup.EventComp); } }
 
-    public void AddEventComp(Utils.Event.EventDispatcher newDispatcher) {
+    public void AddEventComp(RFramework.Common.Event.EventDispatcher newDispatcher) {
         var index = GameComponentsLookup.EventComp;
         var component = (Components.Event.EventComp)CreateComponent(index, typeof(Components.Event.EventComp));
         component.Dispatcher = newDispatcher;
         AddComponent(index, component);
     }
 
-    public void ReplaceEventComp(Utils.Event.EventDispatcher newDispatcher) {
+    public void ReplaceEventComp(RFramework.Common.Event.EventDispatcher newDispatcher) {
         var index = GameComponentsLookup.EventComp;
         var component = (Components.Event.EventComp)CreateComponent(index, typeof(Components.Event.EventComp));
         component.Dispatcher = newDispatcher;

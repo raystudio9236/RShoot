@@ -3,7 +3,7 @@ using Actions.Core;
 using Item;
 using Other;
 using UnityEngine;
-using Utils.Event;
+using RFramework.Common.Event;
 
 namespace Utils.Entity
 {

@@ -1,5 +1,5 @@
 using Entitas;
-using Utils.Event;
+using RFramework.Common.Event;
 
 namespace Components.Event
 {

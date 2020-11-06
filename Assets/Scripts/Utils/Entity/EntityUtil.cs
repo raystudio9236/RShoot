@@ -1,7 +1,7 @@
 using Components.Base;
 using Components.Item;
 using Components.Stat;
-using Utils.Event;
+using RFramework.Common.Event;
 
 namespace Utils.Entity
 {

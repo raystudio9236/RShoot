@@ -1,28 +1,19 @@
 using System.Collections.Generic;
 using Hybrid.Base;
 using Other;
+using RFramework.Common.Singleton;
 using UnityEngine;
 
 namespace Manager
 {
-    public class PoolManager : MonoBehaviour
+    public class PoolManager : MonoSingleton<PoolManager>
     {
         private const string PATH_PREFIX = "Actors";
-        
-        public static PoolManager Instance;
 
         [SerializeField] private ActorTagPathDic ActorTagPathDic;
 
         private Dictionary<ActorTag, ViewPrefabPool> _viewPrefabPools
             = new Dictionary<ActorTag, ViewPrefabPool>();
-
-        private void Awake()
-        {
-            if (Instance != null)
-                Destroy(Instance.gameObject);
-
-            Instance = this;
-        }
 
         public View Spawn(ActorTag actorTag)
         {

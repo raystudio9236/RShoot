@@ -1,4 +1,5 @@
 using Entitas;
+using Manager;
 using UnityEngine;
 
 namespace Systems.Input
@@ -14,16 +15,17 @@ namespace Systems.Input
 
         public void Execute()
         {
+            var mouse = UnityEngine.InputSystem.Mouse.current;
             var playerInputEntity = _contexts.input.CreateEntity();
             playerInputEntity.AddInputComp(new Vector2(
-                    UnityEngine.Input.GetAxis("Horizontal"),
-                    UnityEngine.Input.GetAxis("Vertical")
+                    InputManager.Instance.HorizontalValue,
+                    InputManager.Instance.VerticalValue
                 ),
-                UnityEngine.Input.mousePosition,
-                UnityEngine.Input.GetMouseButton(0),
-                UnityEngine.Input.GetMouseButtonDown(0),
-                UnityEngine.Input.GetMouseButton(1),
-                UnityEngine.Input.GetMouseButtonDown(1));
+                mouse.position.ReadValue(),
+                mouse.leftButton.wasPressedThisFrame,
+                mouse.leftButton.isPressed,
+                mouse.rightButton.wasPressedThisFrame,
+                mouse.rightButton.isPressed);
         }
     }
 }
